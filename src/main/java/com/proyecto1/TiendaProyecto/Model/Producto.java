@@ -1,6 +1,5 @@
 package com.proyecto1.TiendaProyecto.Model;
 
-
 import jakarta.persistence.Column;
 
 import jakarta.persistence.Entity;
@@ -20,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "producto")
 public class Producto {
-    
+
     @Column(name = "productoId")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,5 +40,9 @@ public class Producto {
     @ManyToOne
     @JoinColumn(name = "categoriaId", nullable = false)
     private Categoria categoria;
+
+    @ManyToOne
+    @JoinColumn(name = "proveedorId", nullable = false)
+    private Proveedor proveedor;
 
 }
