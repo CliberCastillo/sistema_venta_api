@@ -2,6 +2,8 @@ package com.proyecto1.TiendaProyecto.Model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -37,5 +39,18 @@ public class DetallePedido {
     @JoinColumn(name = "productoId")
     @JsonBackReference
     private Producto producto;
+
+    //para que se muestre en el Json el id y nombre del producto en el detalle del pedido
+    @JsonProperty("idProducto")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Long getIdPProducto() {
+        return producto != null ? producto.getProductoId() : null;
+    }
+
+    @JsonProperty("nombreProducto")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public String getNombreProducto() {
+        return producto != null ? producto.getNombreProducto() : null;
+    }
 
 }
