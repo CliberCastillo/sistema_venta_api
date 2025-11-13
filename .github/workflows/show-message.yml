@@ -9,5 +9,8 @@ jobs:
     steps:
       - name: git checkout code
         uses: actions/checkout@v4
-
-      - run: echo "$(cat hello.txt)"
+      
+      - name: Show message and list file
+        run: |
+          echo "$(cat hello.txt)"
+          ls -lh
