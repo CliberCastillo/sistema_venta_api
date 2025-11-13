@@ -4,7 +4,7 @@ on:
     branches:
     - main
 jobs:
-  label_issue:
+  show_job:
     runs-on: ubuntu-latest
     steps:
       - name: git checkout code
@@ -14,3 +14,4 @@ jobs:
         run: |
           echo "$(cat hello.txt)"
           ls -lh
+          tree
